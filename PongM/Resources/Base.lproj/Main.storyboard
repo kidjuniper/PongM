@@ -1,24 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fvh-Lb-4Se">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Pong View Controller-->
+        <scene sceneID="Fv6-0A-oTG">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="fvh-Lb-4Se" customClass="PongViewController" customModule="Pong" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xki-Rn-VSz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E09-Ch-821">
+                                <rect key="frame" x="0.0" y="438.66666666666674" width="393" height="379.33333333333326"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="64"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="18j-WU-6vF">
+                                <rect key="frame" x="147.33333333333334" y="750" width="98.333333333333343" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="DXf-Fa-QbH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0x-iU-hLc">
+                                <rect key="frame" x="0.0" y="437.66666666666669" width="393" height="2"/>
+                                <color key="backgroundColor" white="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="H4T-92-t9s"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBu-2I-lTa">
+                                <rect key="frame" x="180.33333333333334" y="422.33333333333331" width="32.333333333333343" height="32.333333333333314"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vBu-2I-lTa" secondAttribute="height" multiplier="1:1" id="9Ic-Gy-pKE"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3r-eo-E1C">
+                                <rect key="frame" x="147.33333333333334" y="103" width="98.333333333333343" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Ku6-Z9-Su0"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WH6-Ze-2hQ"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WH6-Ze-2hQ" firstAttribute="bottom" secondItem="E09-Ch-821" secondAttribute="bottom" id="0hV-7W-aP0"/>
+                            <constraint firstItem="18j-WU-6vF" firstAttribute="centerX" secondItem="WH6-Ze-2hQ" secondAttribute="centerX" id="19y-HX-AGU"/>
+                            <constraint firstItem="vBu-2I-lTa" firstAttribute="width" secondItem="18j-WU-6vF" secondAttribute="width" multiplier="0.33" id="25P-Tn-oGY"/>
+                            <constraint firstItem="f3r-eo-E1C" firstAttribute="top" secondItem="WH6-Ze-2hQ" secondAttribute="top" constant="44" id="3wS-dR-FSJ"/>
+                            <constraint firstItem="i0x-iU-hLc" firstAttribute="leading" secondItem="xki-Rn-VSz" secondAttribute="leading" id="9CM-WQ-lmo"/>
+                            <constraint firstItem="WH6-Ze-2hQ" firstAttribute="bottom" secondItem="18j-WU-6vF" secondAttribute="bottom" constant="44" id="HqV-DF-W4I"/>
+                            <constraint firstItem="f3r-eo-E1C" firstAttribute="centerX" secondItem="WH6-Ze-2hQ" secondAttribute="centerX" id="JGW-71-OCi"/>
+                            <constraint firstItem="E09-Ch-821" firstAttribute="height" secondItem="WH6-Ze-2hQ" secondAttribute="height" multiplier="0.5" id="LI1-ug-4y7"/>
+                            <constraint firstItem="E09-Ch-821" firstAttribute="trailing" secondItem="WH6-Ze-2hQ" secondAttribute="trailing" id="OOF-FL-HiP"/>
+                            <constraint firstAttribute="trailing" secondItem="i0x-iU-hLc" secondAttribute="trailing" id="TUc-25-nSA"/>
+                            <constraint firstItem="18j-WU-6vF" firstAttribute="width" secondItem="xki-Rn-VSz" secondAttribute="width" multiplier="0.25" id="Un4-yr-EcC"/>
+                            <constraint firstItem="vBu-2I-lTa" firstAttribute="centerY" secondItem="WH6-Ze-2hQ" secondAttribute="centerY" id="VLg-0S-A99"/>
+                            <constraint firstItem="vBu-2I-lTa" firstAttribute="centerX" secondItem="WH6-Ze-2hQ" secondAttribute="centerX" id="gmo-hE-O5X"/>
+                            <constraint firstItem="f3r-eo-E1C" firstAttribute="width" secondItem="xki-Rn-VSz" secondAttribute="width" multiplier="0.25" id="knA-PT-0aq"/>
+                            <constraint firstItem="i0x-iU-hLc" firstAttribute="centerY" secondItem="WH6-Ze-2hQ" secondAttribute="centerY" id="wgP-vi-47c"/>
+                            <constraint firstItem="E09-Ch-821" firstAttribute="leading" secondItem="WH6-Ze-2hQ" secondAttribute="leading" id="xgx-o3-L9T"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ballView" destination="vBu-2I-lTa" id="jvB-40-hqK"/>
+                        <outlet property="enemyPaddleView" destination="f3r-eo-E1C" id="9LB-k3-dkW"/>
+                        <outlet property="lineView" destination="i0x-iU-hLc" id="mMb-mt-MgP"/>
+                        <outlet property="userPaddleView" destination="18j-WU-6vF" id="ycm-ds-erV"/>
+                        <outlet property="userScoreLabel" destination="E09-Ch-821" id="lvk-wg-qOX"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vMK-0W-0Zr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="66.666666666666671" y="75.815217391304358"/>
         </scene>
     </scenes>
 </document>

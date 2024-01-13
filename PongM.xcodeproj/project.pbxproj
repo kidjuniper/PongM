@@ -7,23 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A43498E72B531BDC003096DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43498E62B531BDC003096DA /* AppDelegate.swift */; };
 		A43498E92B531BDC003096DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43498E82B531BDC003096DA /* SceneDelegate.swift */; };
-		A43498EB2B531BDC003096DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43498EA2B531BDC003096DA /* ViewController.swift */; };
 		A43498EE2B531BDC003096DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43498EC2B531BDC003096DA /* Main.storyboard */; };
-		A43498F02B531BDE003096DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A43498EF2B531BDE003096DA /* Assets.xcassets */; };
 		A43498F32B531BDE003096DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43498F12B531BDE003096DA /* LaunchScreen.storyboard */; };
+		A43499002B531C3A003096DA /* PongViewController+LaunchBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43498FB2B531C3A003096DA /* PongViewController+LaunchBall.swift */; };
+		A43499012B531C3A003096DA /* PongViewController+EnemyPaddleBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43498FC2B531C3A003096DA /* PongViewController+EnemyPaddleBehavior.swift */; };
+		A43499022B531C3A003096DA /* PongViewController+BallHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43498FD2B531C3A003096DA /* PongViewController+BallHit.swift */; };
+		A43499032B531C3A003096DA /* PongViewController+GestureHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43498FE2B531C3A003096DA /* PongViewController+GestureHandling.swift */; };
+		A43499042B531C3A003096DA /* PongViewController+UIKitDynamics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43498FF2B531C3A003096DA /* PongViewController+UIKitDynamics.swift */; };
+		A43499092B531C46003096DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43499062B531C46003096DA /* Constants.swift */; };
+		A434990A2B531C46003096DA /* CGPoint+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43499072B531C46003096DA /* CGPoint+Utils.swift */; };
+		A434990B2B531C46003096DA /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43499082B531C46003096DA /* Sound.swift */; };
+		A43499142B531C4A003096DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A434990D2B531C4A003096DA /* Assets.xcassets */; };
+		A43499162B531C4A003096DA /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = A43499102B531C4A003096DA /* background.wav */; };
+		A43499172B531C4A003096DA /* hit-sound-high.wav in Resources */ = {isa = PBXBuildFile; fileRef = A43499112B531C4A003096DA /* hit-sound-high.wav */; };
+		A43499182B531C4A003096DA /* hit-sound-low.wav in Resources */ = {isa = PBXBuildFile; fileRef = A43499122B531C4A003096DA /* hit-sound-low.wav */; };
+		A43499192B531C4A003096DA /* hit-sound-mid.wav in Resources */ = {isa = PBXBuildFile; fileRef = A43499132B531C4A003096DA /* hit-sound-mid.wav */; };
+		A434991B2B531C4E003096DA /* PongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434991A2B531C4E003096DA /* PongViewController.swift */; };
+		A434991D2B531C55003096DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434991C2B531C54003096DA /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A43498E32B531BDC003096DA /* PongM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PongM.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A43498E62B531BDC003096DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A43498E82B531BDC003096DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A43498EA2B531BDC003096DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A43498ED2B531BDC003096DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A43498EF2B531BDE003096DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A43498F22B531BDE003096DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A43498F42B531BDE003096DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A43498FB2B531C3A003096DA /* PongViewController+LaunchBall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PongViewController+LaunchBall.swift"; sourceTree = "<group>"; };
+		A43498FC2B531C3A003096DA /* PongViewController+EnemyPaddleBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PongViewController+EnemyPaddleBehavior.swift"; sourceTree = "<group>"; };
+		A43498FD2B531C3A003096DA /* PongViewController+BallHit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PongViewController+BallHit.swift"; sourceTree = "<group>"; };
+		A43498FE2B531C3A003096DA /* PongViewController+GestureHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PongViewController+GestureHandling.swift"; sourceTree = "<group>"; };
+		A43498FF2B531C3A003096DA /* PongViewController+UIKitDynamics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PongViewController+UIKitDynamics.swift"; sourceTree = "<group>"; };
+		A43499062B531C46003096DA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A43499072B531C46003096DA /* CGPoint+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Utils.swift"; sourceTree = "<group>"; };
+		A43499082B531C46003096DA /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		A434990D2B531C4A003096DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A43499102B531C4A003096DA /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
+		A43499112B531C4A003096DA /* hit-sound-high.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hit-sound-high.wav"; sourceTree = "<group>"; };
+		A43499122B531C4A003096DA /* hit-sound-low.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hit-sound-low.wav"; sourceTree = "<group>"; };
+		A43499132B531C4A003096DA /* hit-sound-mid.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hit-sound-mid.wav"; sourceTree = "<group>"; };
+		A434991A2B531C4E003096DA /* PongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongViewController.swift; sourceTree = "<group>"; };
+		A434991C2B531C54003096DA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../../Downloads/pong-ios/Pong/AppDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +80,59 @@
 		A43498E52B531BDC003096DA /* PongM */ = {
 			isa = PBXGroup;
 			children = (
-				A43498E62B531BDC003096DA /* AppDelegate.swift */,
+				A434991C2B531C54003096DA /* AppDelegate.swift */,
 				A43498E82B531BDC003096DA /* SceneDelegate.swift */,
-				A43498EA2B531BDC003096DA /* ViewController.swift */,
-				A43498EC2B531BDC003096DA /* Main.storyboard */,
-				A43498EF2B531BDE003096DA /* Assets.xcassets */,
+				A434991A2B531C4E003096DA /* PongViewController.swift */,
+				A43498FA2B531C3A003096DA /* PongViewControllerExtensions */,
+				A43499052B531C46003096DA /* Utils */,
+				A434990C2B531C4A003096DA /* Resources */,
 				A43498F12B531BDE003096DA /* LaunchScreen.storyboard */,
 				A43498F42B531BDE003096DA /* Info.plist */,
 			);
 			path = PongM;
+			sourceTree = "<group>";
+		};
+		A43498FA2B531C3A003096DA /* PongViewControllerExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				A43498FB2B531C3A003096DA /* PongViewController+LaunchBall.swift */,
+				A43498FC2B531C3A003096DA /* PongViewController+EnemyPaddleBehavior.swift */,
+				A43498FD2B531C3A003096DA /* PongViewController+BallHit.swift */,
+				A43498FE2B531C3A003096DA /* PongViewController+GestureHandling.swift */,
+				A43498FF2B531C3A003096DA /* PongViewController+UIKitDynamics.swift */,
+			);
+			path = PongViewControllerExtensions;
+			sourceTree = "<group>";
+		};
+		A43499052B531C46003096DA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A43499062B531C46003096DA /* Constants.swift */,
+				A43499072B531C46003096DA /* CGPoint+Utils.swift */,
+				A43499082B531C46003096DA /* Sound.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A434990C2B531C4A003096DA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A434990D2B531C4A003096DA /* Assets.xcassets */,
+				A43498EC2B531BDC003096DA /* Main.storyboard */,
+				A434990F2B531C4A003096DA /* Sounds */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A434990F2B531C4A003096DA /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				A43499102B531C4A003096DA /* background.wav */,
+				A43499112B531C4A003096DA /* hit-sound-high.wav */,
+				A43499122B531C4A003096DA /* hit-sound-low.wav */,
+				A43499132B531C4A003096DA /* hit-sound-mid.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +194,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A43498F32B531BDE003096DA /* LaunchScreen.storyboard in Resources */,
-				A43498F02B531BDE003096DA /* Assets.xcassets in Resources */,
+				A43499172B531C4A003096DA /* hit-sound-high.wav in Resources */,
+				A43499162B531C4A003096DA /* background.wav in Resources */,
+				A43499192B531C4A003096DA /* hit-sound-mid.wav in Resources */,
+				A43499142B531C4A003096DA /* Assets.xcassets in Resources */,
 				A43498EE2B531BDC003096DA /* Main.storyboard in Resources */,
+				A43499182B531C4A003096DA /* hit-sound-low.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +210,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A43498EB2B531BDC003096DA /* ViewController.swift in Sources */,
-				A43498E72B531BDC003096DA /* AppDelegate.swift in Sources */,
+				A43499012B531C3A003096DA /* PongViewController+EnemyPaddleBehavior.swift in Sources */,
+				A434990B2B531C46003096DA /* Sound.swift in Sources */,
+				A43499022B531C3A003096DA /* PongViewController+BallHit.swift in Sources */,
+				A43499002B531C3A003096DA /* PongViewController+LaunchBall.swift in Sources */,
+				A434991B2B531C4E003096DA /* PongViewController.swift in Sources */,
+				A43499042B531C3A003096DA /* PongViewController+UIKitDynamics.swift in Sources */,
+				A434991D2B531C55003096DA /* AppDelegate.swift in Sources */,
+				A434990A2B531C46003096DA /* CGPoint+Utils.swift in Sources */,
 				A43498E92B531BDC003096DA /* SceneDelegate.swift in Sources */,
+				A43499032B531C3A003096DA /* PongViewController+GestureHandling.swift in Sources */,
+				A43499092B531C46003096DA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +298,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -275,7 +355,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -292,13 +372,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B22MD3V3UZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PongM/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,9 +389,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.PongM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -319,13 +406,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B22MD3V3UZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PongM/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -333,9 +423,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.PongM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
