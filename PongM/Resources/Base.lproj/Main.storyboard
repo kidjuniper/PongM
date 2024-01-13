@@ -11,7 +11,7 @@
         <!--Pong View Controller-->
         <scene sceneID="Fv6-0A-oTG">
             <objects>
-                <viewController id="fvh-Lb-4Se" customClass="PongViewController" customModule="Pong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fvh-Lb-4Se" customClass="PongViewController" customModule="PongM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xki-Rn-VSz">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

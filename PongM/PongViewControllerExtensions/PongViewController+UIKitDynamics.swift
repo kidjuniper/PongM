@@ -22,8 +22,8 @@ extension PongViewController {
         self.dynamicAnimator = dynamicAnimator
         
         let collisionBehavior = UICollisionBehavior(items: [ballView,
-                                                            userPaddleView,
-                                                            enemyPaddleView])
+                                                            enemyPaddleView,
+                                                            userPaddleView])
         collisionBehavior.collisionDelegate = self
         collisionBehavior.collisionMode = .everything
         collisionBehavior.translatesReferenceBoundsIntoBoundary = true
@@ -40,13 +40,13 @@ extension PongViewController {
         
         let userPaddleDynamicBehavior = UIDynamicItemBehavior(items: [userPaddleView])
         userPaddleDynamicBehavior.allowsRotation = false
-        userPaddleDynamicBehavior.density = 1000000000000
+        userPaddleDynamicBehavior.density = 10000000
         self.userPaddleDynamicBehavior = userPaddleDynamicBehavior
         dynamicAnimator.addBehavior(userPaddleDynamicBehavior)
         
         let enemyPaddleDynamicBehavior = UIDynamicItemBehavior(items: [enemyPaddleView])
         enemyPaddleDynamicBehavior.allowsRotation = false
-        enemyPaddleDynamicBehavior.density = 10000000000000
+        enemyPaddleDynamicBehavior.density = 10000000
         self.enemyPaddleDynamicBehavior = enemyPaddleDynamicBehavior
         dynamicAnimator.addBehavior(enemyPaddleDynamicBehavior)
         
@@ -71,6 +71,7 @@ extension PongViewController: UICollisionBehaviorDelegate {
         with item2: UIDynamicItem,
         at p: CGPoint
     ) {
+        
         guard
             let view1 = item1 as? UIView,
             let view2 = item2 as? UIView
@@ -101,13 +102,13 @@ extension PongViewController: UICollisionBehaviorDelegate {
         }
     }
     
-    /// Эта функция обрабатывает столкновение объекта и рамки
     func collisionBehavior(
         _ behavior: UICollisionBehavior,
         beganContactFor item: UIDynamicItem,
         withBoundaryIdentifier identifier: NSCopying?,
         at p: CGPoint
     ) {
+                
         // NOTE: Пытаемся опеределить по тэгу, является ли объект столкновения мячом
         guard
             identifier == nil,
