@@ -36,6 +36,7 @@ class PongViewController: UIViewController {
     /// Это переменная в которой мы будем запоминать последнее положение платформы пользователя,
     /// перед тем как пользователь начал двигать пальцем по экрану
     var lastUserPaddleOriginLocation: CGPoint = CGPoint()
+    var lastChangedLocation: CGFloat = 0.0
 
     /// Это переменная таймера, который будет обновлять положение платформы соперника
     var enemyPaddleUpdateTimer: Timer?
