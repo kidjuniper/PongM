@@ -48,35 +48,30 @@ extension PongViewController {
             let velocity = recognizer.velocity(in: view)
             shouldBallBeAccelerated = velocity.y < -750 ? true : false
             
-            let translatedOriginX: CGFloat = lastUserPaddleOriginLocation.x + translation.x
-            let translatedOriginY = lastUserPaddleOriginLocation.y + translation.y
+            // делаем разбиение перемещения, чтобы при резком движении отскок все равно ловился
+            for i in 0...30 {
+                let translatedOriginX: CGFloat = lastUserPaddleOriginLocation.x + (translation.x / 30.0) * CGFloat(i)
+                let translatedOriginY = lastUserPaddleOriginLocation.y + (translation.y / 30.0) * CGFloat(i)
 
-            let platformWidthRatio = userPaddleView.frame.width / view.bounds.width
-            let platformHeightRatio = userPaddleView.frame.height / view.bounds.height
-            let minX: CGFloat = 0
-            let maxX: CGFloat = view.bounds.width * (1 - platformWidthRatio)
-            let minY: CGFloat = view.bounds.height - userPaddleView.bounds.height - 70
-            let maxY: CGFloat = view.bounds.height - view.bounds.height * (0.2 - platformHeightRatio)
-            if !shouldBallBeAccelerated {
+                let platformWidthRatio = userPaddleView.frame.width / view.bounds.width
+                let platformHeightRatio = userPaddleView.frame.height / view.bounds.height
+                let minX: CGFloat = 0
+                let maxX: CGFloat = view.bounds.width * (1 - platformWidthRatio)
+                let minY: CGFloat = view.bounds.height - userPaddleView.bounds.height - userPaddleView.frame.height
+                let maxY: CGFloat = view.bounds.height - view.bounds.height * (0.2 - platformHeightRatio)
+                
                 userPaddleView.frame.origin.x = min(max(translatedOriginX, minX), maxX)
+                userPaddleView.frame.origin.y = max(min(translatedOriginY, minY), maxY)
+                
+                if translatedOriginY < maxY {
+                    accessLine.layer.opacity = 1
+                }
+                else {
+                    accessLine.layer.opacity = 0
+                }
+                
+                dynamicAnimator?.updateItem(usingCurrentState: userPaddleView)
             }
-            userPaddleView.frame.origin.y = max(min(translatedOriginY, minY), maxY)
-            
-            if translatedOriginY < maxY {
-                accessLine.layer.opacity = 1
-            }
-            else {
-                accessLine.layer.opacity = 0
-            }
-            
-            if translatedOriginY < minY {
-                gateLine.layer.opacity = 0
-            }
-            else {
-                gateLine.layer.opacity = 1
-            }
-        
-            dynamicAnimator?.updateItem(usingCurrentState: userPaddleView)
             
         default:
             // NOTE: При любом другом состоянии ничего не делаем

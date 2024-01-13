@@ -17,13 +17,6 @@ class PongViewController: UIViewController {
     /// Это переменная отображения разделяющей линии
     @IBOutlet var lineView: UIView!
     
-    lazy var gateLine: UIView = {
-        let view = UIView(frame: CGRect(x: 0,
-                                        y: 0,
-                                        width: 0,
-                                        height: 0))
-        return view
-    }()
     lazy var accessLine: UIView = {
         let view = UIView(frame: CGRect(x: 0,
                                         y: 0,
@@ -101,26 +94,16 @@ class PongViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        [gateLine,
-         accessLine].forEach { item in
+        [accessLine].forEach { item in
             view.addSubview(item)
             item.translatesAutoresizingMaskIntoConstraints = false
         }
         accessLine.backgroundColor = .red.withAlphaComponent(0.3)
-        gateLine.backgroundColor = .red.withAlphaComponent(0.45)
         
         let platformHeightRatio = userPaddleView.frame.height / view.bounds.height
         let c = view.bounds.height * (0.2 - platformHeightRatio) + 2
         
-        gateLine.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            gateLine.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                                     gateLine.bottomAnchor.constraint(equalTo: view.bottomAnchor,
-                                                                       constant: -65),
-                                     gateLine.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.95),
-                                     gateLine.heightAnchor.constraint(equalToConstant: 2),
-                                     
-                                     accessLine.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        NSLayoutConstraint.activate([accessLine.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      accessLine.bottomAnchor.constraint(equalTo: view.bottomAnchor,
                                                                                                     constant: -c),
                                      accessLine.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.95),
@@ -146,7 +129,7 @@ class PongViewController: UIViewController {
         ballView.layer.cornerRadius = ballView.bounds.size.height / 2
         ballView.backgroundColor = .systemGreen
         userPaddleView.backgroundColor = .systemGray4
-        enemyPaddleView.backgroundColor = .systemGray4
+        enemyPaddleView.backgroundColor = .red
     }
 
     /// Эта функция обрабатывает начало всех касаний экрана
