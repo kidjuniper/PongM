@@ -87,6 +87,12 @@ class PongViewController: UIViewController {
             updateUserScoreLabel()
         }
     }
+    
+    var enemyScore: Int = 0 {
+        didSet {
+            updateUserScoreLabel()
+        }
+    }
 
     // MARK: - Instance Methods
 

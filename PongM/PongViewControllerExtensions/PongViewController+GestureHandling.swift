@@ -49,8 +49,11 @@ extension PongViewController {
             let velocity = recognizer.velocity(in: view)
             shouldBallBeAccelerated = velocity.y < -750 ? true : false
             
-            let translatedOriginX: CGFloat = lastUserPaddleOriginLocation.x + (translation.x)
-            let translatedOriginY: CGFloat = lastUserPaddleOriginLocation.y + (translation.y * (shouldBallBeAccelerated ? 0.4 : 0.7))
+            // чуть ускоряем движения по X для удобства 
+            let translatedOriginX: CGFloat = lastUserPaddleOriginLocation.x + (translation.x * 1.3)
+            
+            // делаем плавнее ход фишки по Y, чтобы не пропускать отскоки 
+            let translatedOriginY: CGFloat = lastUserPaddleOriginLocation.y + (translation.y * 0.5)
             
             let platformWidthRatio = userPaddleView.frame.width / view.bounds.width
             let platformHeightRatio = userPaddleView.frame.height / view.bounds.height
@@ -60,9 +63,13 @@ extension PongViewController {
             let maxY: CGFloat = view.bounds.height - view.bounds.height * (0.2 - platformHeightRatio)
             
             
-            userPaddleView.frame.origin.x = min(max(translatedOriginX, minX), maxX)
+            userPaddleView.frame.origin.x = min(max(translatedOriginX,
+                                                    minX),
+                                                maxX)
             
-            userPaddleView.frame.origin.y = max(min(translatedOriginY, minY), maxY)
+            userPaddleView.frame.origin.y = max(min(translatedOriginY,
+                                                    minY),
+                                                maxY)
             
             lastChangedLocation = translation.y
             if translatedOriginY < maxY {
