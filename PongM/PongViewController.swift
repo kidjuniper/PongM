@@ -88,12 +88,55 @@ class PongViewController: UIViewController {
         }
     }
     
+    private lazy var enemyScoreLabel: UILabel = {
+        var label = UILabel()
+        label.text = "0"
+        label.font = UIFont(name: "Futura Bold",
+                            size: 64.0)
+        label.textColor = .black
+        label.textAlignment = .center
+        return label
+    }()
+    
     var enemyScore: Int = 0 {
         didSet {
-            updateUserScoreLabel()
+            updateEnemyScore()
         }
     }
-
+    // MARK: - Tutorial Views
+    
+    // перекинуть название в константы
+    var horizontalArrowImageView = UIImageView(image: UIImage(named: "arrowHorizontal"))
+    var horizontalArrowImageViewHolder = UIImageView(image: UIImage(named: "arrowHorizontal"))
+    
+    var verticalArrowImageView = UIImageView(image: UIImage(named: "arrowVertical"))
+    var verticalArrowImageViewHolder = UIImageView(image: UIImage(named: "arrowVertical"))
+    
+    var handTutorImageView = UIImageView(image: UIImage(named: "hand"))
+    var handTutorImageViewXConstraint: NSLayoutConstraint?
+    var handTutorImageViewYConstraint: NSLayoutConstraint?
+    
+    let shapeLayer: CAShapeLayer = {
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.fillRule = .nonZero
+        return shapeLayer
+    }()
+    
+    let shapeLayerVertical: CAShapeLayer = {
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.fillRule = .nonZero
+        return shapeLayer
+    }()
+    
+    var path = UIBezierPath()
+    var pathV = UIBezierPath()
+    
+    var needTutorial = true
+    var tutorialState: Int = 0
+    var tutorialStateTransitional: Double = 0.0
+    
+    var animationTimer = Timer()
+    
     // MARK: - Instance Methods
 
     /// Эта функция запускается 1 раз когда представление экрана загрузилось
@@ -101,7 +144,9 @@ class PongViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        [accessLine].forEach { item in
+        [accessLine,
+         enemyScoreLabel,
+         ballView].forEach { item in
             view.addSubview(item)
             item.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -114,10 +159,19 @@ class PongViewController: UIViewController {
                                      accessLine.bottomAnchor.constraint(equalTo: view.bottomAnchor,
                                                                                                     constant: -c),
                                      accessLine.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.95),
-                                     accessLine.heightAnchor.constraint(equalToConstant: 2)
+                                     accessLine.heightAnchor.constraint(equalToConstant: 2),
+                                     
+                                     enemyScoreLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                     enemyScoreLabel.widthAnchor.constraint(equalToConstant: view.bounds.width),
+                                     enemyScoreLabel.heightAnchor.constraint(equalToConstant: view.bounds.height / 2),
+                                     enemyScoreLabel.bottomAnchor.constraint(equalTo: view.centerYAnchor),
+                                
                                     ])
     
         configurePongGame()
+        
+        handTutorTutorialConfig()
+       
     }
 
     /// Эта функция вызывается, когда экран PongViewController повяился на экране телефона
@@ -134,9 +188,9 @@ class PongViewController: UIViewController {
 
         // NOTE: Устанавливаем шару радиус скругления равный половине высоты
         ballView.layer.cornerRadius = ballView.bounds.size.height / 2
-        ballView.backgroundColor = .systemGreen
-        userPaddleView.backgroundColor = .systemGray4
-        enemyPaddleView.backgroundColor = .red
+        ballView.backgroundColor = .white
+        userPaddleView.backgroundColor = .black
+        enemyPaddleView.backgroundColor = .black
     }
 
     /// Эта функция обрабатывает начало всех касаний экрана
@@ -149,7 +203,7 @@ class PongViewController: UIViewController {
         // NOTE: Если нужно запустить мяч и мяч еще не был запущен - запускаем мяч
         if shouldLaunchBallOnNextTap, !hasLaunchedBall {
             hasLaunchedBall = true
-            launchBall()
+            launchBall(straight: needTutorial)
         }
     }
 
@@ -181,5 +235,9 @@ class PongViewController: UIViewController {
 
     private func updateUserScoreLabel() {
         userScoreLabel.text = "\(userScore)"
+    }
+    
+    private func updateEnemyScore() {
+        enemyScoreLabel.text = "\(enemyScore)"
     }
 }

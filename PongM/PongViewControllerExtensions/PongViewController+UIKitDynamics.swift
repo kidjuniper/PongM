@@ -78,23 +78,46 @@ extension PongViewController: UICollisionBehaviorDelegate {
         else { return }
         
         if view1.tag == Constants.ballTag || view2.tag == Constants.ballTag {
-            animateBallHit(at: p,
-                           color: shouldBallBeAccelerated ? UIColor.systemBlue : UIColor.systemGreen)
-            playHitSound(.mid)
-            lightImpactFeedbackGenerator.impactOccurred()
+            if shouldBallBeAccelerated {
+                tutorialState = 3
+            }
+            // если идет туториал, то мы сбрасываем мяч каждое столкновение
+            // куда полетит мяч после ресета определяет состояние туториала (tutorialState)
+            // соответствующий switch есть в необходимых для сброса функциях 
+            // оно обновляется в GestureHandling
+            if needTutorial {
+                if view1.tag == Constants.userPaddleTag || view2.tag == Constants.userPaddleTag {
+                    // использование дробной переменной tutorialStateTransitional позволяет переходить на следующее состояние только при соблюдении двух условий:
+                    //удар отражен и ракетка достигла края
+                    tutorialState = Int(tutorialStateTransitional + 0.1)
+                }
+                else {
+                    tutorialState = Int(tutorialStateTransitional)
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.resetBallWithAnimation()
+                }
+            }
+            else {
+                animateBallHit(at: p,
+                               color: shouldBallBeAccelerated ? UIColor.white : UIColor.systemOrange)
+                playHitSound(.mid)
+                lightImpactFeedbackGenerator.impactOccurred()
+            }
         }
         if let ballDynamicBehavior = self.ballDynamicBehavior {
             ballDynamicBehavior.addLinearVelocity(
                 ballDynamicBehavior.linearVelocity(for: self.ballView).multiplied(by: shouldBallBeAccelerated ?  Constants.ballAccelerationFactorForced : Constants.ballAccelerationFactor),
                 for: self.ballView
             )
+            // анимация ускоренного удара
             if shouldBallBeAccelerated {
                 ballPushBehavior?.pushDirection = makeRandomVelocityVector(straight: true)
                 for i in 0...3 {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.15 * Double(i)) {
                         self.animateBallHit(at: CGPoint(x: self.ballView.frame.maxX,
                                                         y: self.ballView.frame.maxY),
-                                            color: UIColor.systemBlue)
+                                            color: UIColor.systemOrange)
                     }
                 }
                 shouldBallBeAccelerated = false
@@ -117,7 +140,7 @@ extension PongViewController: UICollisionBehaviorDelegate {
         else { return }
         
         animateBallHit(at: p,
-                       color: UIColor.systemGreen)
+                       color: UIColor.white)
         
         var shouldResetBall: Bool = false
         if abs(p.y) <= Constants.contactThreshold {
@@ -131,6 +154,7 @@ extension PongViewController: UICollisionBehaviorDelegate {
             // NOTE: Если место столкновения близко к нижней границе,
             // значит мяч ударился о нижнюю грань экрана
             shouldResetBall = true
+            enemyScore += 1
         }
         
         if shouldResetBall {
@@ -144,9 +168,6 @@ extension PongViewController: UICollisionBehaviorDelegate {
     }
     
     // MARK: - Utils
-    
-    
-    
     /// Эта вспомогательная функция возвращает название элемента, определяя его по "тэгу"
     private func getNameFromViewTag(_ view: UIView) -> String {
         switch view.tag {

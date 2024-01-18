@@ -12,11 +12,12 @@ import UIKit
 extension PongViewController {
 
     /// Функция запуска мяча. Генерирует рандомный вектор скорости мяча и запускает мяч по этому вектору
-    func launchBall() {
-        let ballPusher = UIPushBehavior(items: [ballView], mode: .instantaneous)
+    func launchBall(straight: Bool) {
+        let ballPusher = UIPushBehavior(items: [ballView], 
+                                        mode: .instantaneous)
         self.ballPushBehavior = ballPusher
 
-        ballPusher.pushDirection = makeRandomVelocityVector(straight: false)
+        ballPusher.pushDirection = makeRandomVelocityVector(straight: straight)
         ballPusher.active = true
 
         self.dynamicAnimator?.addBehavior(ballPusher)
@@ -31,7 +32,15 @@ extension PongViewController {
         var angle = Double.pi * (0.16 + 0.16 * randomSeed)
         
         if straight {
-            angle = Double.pi * (0.08 + 0.08 * randomSeed)
+            switch tutorialState {
+            case 0:
+                angle = Double.pi * (0.35)
+            case 1:
+                angle = Double.pi * (0.65)
+            case 2:
+                angle = Double.pi * (0.65)
+            default: break
+            }
         }
 
         // NOTE: Берем в качестве амплитуды (силы) запуска мяча 1.5 пикселя экрана
@@ -42,6 +51,12 @@ extension PongViewController {
         let y = amplitude * sin(angle)
 
         // NOTE: используя сгенерированный угол, возвращаем его в одном из 4 вариаций
+        
+        if straight {
+            return CGVector(dx: x, dy: y)
+        }
+            
+            
         switch arc4random() % 4 {
         case 0:
             // направо, вниз

@@ -25,6 +25,7 @@
 		A43499192B531C4A003096DA /* hit-sound-mid.wav in Resources */ = {isa = PBXBuildFile; fileRef = A43499132B531C4A003096DA /* hit-sound-mid.wav */; };
 		A434991B2B531C4E003096DA /* PongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434991A2B531C4E003096DA /* PongViewController.swift */; };
 		A434991D2B531C55003096DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434991C2B531C54003096DA /* AppDelegate.swift */; };
+		A4CC934F2B54666100F07C00 /* PongViewController+TutorialAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC934E2B54666100F07C00 /* PongViewController+TutorialAnimations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		A43499132B531C4A003096DA /* hit-sound-mid.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hit-sound-mid.wav"; sourceTree = "<group>"; };
 		A434991A2B531C4E003096DA /* PongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongViewController.swift; sourceTree = "<group>"; };
 		A434991C2B531C54003096DA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../../Downloads/pong-ios/Pong/AppDelegate.swift"; sourceTree = "<group>"; };
+		A4CC934E2B54666100F07C00 /* PongViewController+TutorialAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PongViewController+TutorialAnimations.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				A43498FD2B531C3A003096DA /* PongViewController+BallHit.swift */,
 				A43498FE2B531C3A003096DA /* PongViewController+GestureHandling.swift */,
 				A43498FF2B531C3A003096DA /* PongViewController+UIKitDynamics.swift */,
+				A4CC934E2B54666100F07C00 /* PongViewController+TutorialAnimations.swift */,
 			);
 			path = PongViewControllerExtensions;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				A43499012B531C3A003096DA /* PongViewController+EnemyPaddleBehavior.swift in Sources */,
 				A434990B2B531C46003096DA /* Sound.swift in Sources */,
 				A43499022B531C3A003096DA /* PongViewController+BallHit.swift in Sources */,
+				A4CC934F2B54666100F07C00 /* PongViewController+TutorialAnimations.swift in Sources */,
 				A43499002B531C3A003096DA /* PongViewController+LaunchBall.swift in Sources */,
 				A434991B2B531C4E003096DA /* PongViewController.swift in Sources */,
 				A43499042B531C3A003096DA /* PongViewController+UIKitDynamics.swift in Sources */,

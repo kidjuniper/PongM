@@ -16,7 +16,7 @@ extension PongViewController {
 
     /// Эта функция включает логику "преследования" мяча платформой противника
     func enableEnemyPaddleFollowBehavior() {
-        let updatesPerSecond: TimeInterval = 24
+        let updatesPerSecond: TimeInterval = 40
         let timePerFrame: TimeInterval = 1.0 / updatesPerSecond
 
         // NOTE: Создаем таймер которые вызывается 24 раза в секунду
@@ -42,8 +42,11 @@ extension PongViewController {
             let maxX: CGFloat = self.view.bounds.width * (1 - platformWidthRatio)
 
             let diff = ballCenterX - paddleCenterX
-            let clampedDiff = min(max(diff, -Constants.enemyPaddleMaxSpeed), Constants.enemyPaddleMaxSpeed) * diffFactor
-            self.enemyPaddleView.frame.origin.x = min(max(paddleLeftX + clampedDiff, minX), maxX)
+            let clampedDiff = min(max(diff, -Constants.enemyPaddleMaxSpeed), 
+                                  Constants.enemyPaddleMaxSpeed) * diffFactor
+            self.enemyPaddleView.frame.origin.x = min(max(paddleLeftX + clampedDiff, 
+                                                          minX),
+                                                      maxX)
             self.dynamicAnimator?.updateItem(usingCurrentState: self.enemyPaddleView)
         }
     }
