@@ -94,8 +94,13 @@ extension PongViewController: UICollisionBehaviorDelegate {
                 else {
                     tutorialState = Int(tutorialStateTransitional)
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.resetBallWithAnimation()
+                if tutorialState < 3 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.resetBallWithAnimation()
+                    }
+                }
+                else {
+                    needTutorial = false
                 }
             }
             else {

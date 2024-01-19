@@ -49,8 +49,9 @@ extension PongViewController {
             let translation: CGPoint = recognizer.translation(in: view)
             
             // проверяем ускорение; если больше величины N, то ускорение будет больше
-            
-            shouldBallBeAccelerated = velocity.y < -750 ? true : false
+            if tutorialState > 1 {
+                shouldBallBeAccelerated = velocity.y < -750 ? true : false
+            }
             
             // чуть ускоряем движения по X для удобства
             let translatedOriginX: CGFloat = lastUserPaddleOriginLocation.x + (translation.x * 1.3)
@@ -74,9 +75,12 @@ extension PongViewController {
                                                     minX),
                                                 maxX)
             
-            userPaddleView.frame.origin.y = max(min(translatedOriginY,
-                                                    minY),
-                                                maxY)
+            if tutorialState > 1 {
+                
+                userPaddleView.frame.origin.y = max(min(translatedOriginY,
+                                                        minY),
+                                                    maxY)
+            }
             
             lastChangedLocation = translation.y
             if translatedOriginY < maxY {
@@ -100,14 +104,16 @@ extension PongViewController {
                         point.x = userPaddleView.frame.minX
                     }
                     path.move(to: point)
-                    path.addArc(withCenter: point,
-                                radius: 40,
-                                startAngle: 0,
-                                endAngle: .pi * 2,
-                                clockwise: true)
-                    
-                    shapeLayer.path = self.path.cgPath
-                    shapeLayer.fillRule = .nonZero
+                    if tutorialState > 0 || point.x > UIScreen.main.bounds.width / 2 {
+                        path.addArc(withCenter: point,
+                                    radius: 40,
+                                    startAngle: 0,
+                                    endAngle: .pi * 2,
+                                    clockwise: true)
+                        
+                        shapeLayer.path = self.path.cgPath
+                        shapeLayer.fillRule = .nonZero
+                    }
                     
                     // вычисляем необходимый tutorial state
                     if path.bounds.standardized.minX < 20 && path.bounds.standardized.maxX > horizontalArrowImageView.bounds.width - 20 {
@@ -122,14 +128,13 @@ extension PongViewController {
                     point.x = 85
                     pathV.move(to: point)
                     pathV.addArc(withCenter: point,
-                                radius: 40,
-                                startAngle: 0,
-                                endAngle: .pi * 2,
-                                clockwise: true)
+                                 radius: 40,
+                                 startAngle: 0,
+                                 endAngle: .pi * 2,
+                                 clockwise: true)
                     
                     shapeLayerVertical.path = self.pathV.cgPath
                     shapeLayerVertical.fillRule = .nonZero
-                    
                     // вычисляем необходимый tutorial state
                 }
             }
