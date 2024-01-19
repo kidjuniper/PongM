@@ -26,7 +26,7 @@ extension PongViewController {
     /// Функция генерации вектора скорости запуска мяча с почти рандомным направлением
     func makeRandomVelocityVector(straight: Bool) -> CGVector {
         // NOTE: Генерируем рандомное число от 0 до 1
-        let randomSeed = Double(arc4random_uniform(1000)) / 1000
+        let randomSeed = Double(arc4random_uniform(700) + 300) / 1000
 
         // NOTE: Создаем рандомный угол примерно между Pi/6 (30 градусов) и Pi/3 (60 градусов)
         var angle = Double.pi * (0.16 + 0.16 * randomSeed)
